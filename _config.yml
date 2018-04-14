@@ -1,7 +1,7 @@
 ## Site settings
 title: mas9uerade
 SEOTitle: Mas9uerade Blog
-header-img: img/zelda.jpg
+header-img: img/watchdog2_sf.jpg
 email: rumlianghy@gmail.com
 description: started at 2018/4/13 23:41
 keyword: ""
@@ -13,12 +13,12 @@ gems: [jekyll-paginate]
 
 
 # SNS settings
-RSS: false
+RSS: true
 
 #zhihu_username:     
-github_username:    mas9uerade
+github_username: Mas9uerade
 #douban_username:    
-#weibo_username:     2776591135
+#weibo_username: 
 #twitter_username:  
 #facebook_username:  huxpro
 
