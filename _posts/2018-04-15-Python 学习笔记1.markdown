@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Python学习笔记(1)"
+title:      "Python学习1-环境，函数传参，类"
 subtitle:   " \"Python学习\""
 date:       2018-04-14 21:21:00
 author:     "Mas9uerade"
@@ -12,14 +12,14 @@ tags:
 > “上周简单地学习了Python的基础语法和API，整理一下加深理解和印象”
 
 
-##Python的环境搭建
+## Python的环境搭建
 
 其实，之前因为工作需要，使用python做过简单的数据分析处理脚本，但是在windows平台上单纯的用notepad++和cmd进行代码编写效率是比较低的，因此这次选择了[PyCharm](https://www.jetbrains.com/pycharm/)这个IDE作为编译和调试的环境,界面类似Android Studio，因此这次上手还是很快的。
 注意事项：
 1. python npm的功能直接集成到了IDE内，安装各类模块/第三方库都很方便；
 2. 需要对每个工程都设置一遍Python的运行环境。
 
-##Python的函数传参
+## Python的函数传参
 
 Python作为解释性语言，与其他编译型语言最大的不同点，或者说最初接触python需要注意的地方就是python的函数传参。
 参考[Python 的函数是怎么传递参数的？](https://www.zhihu.com/question/20591688)
@@ -172,8 +172,10 @@ print(P[1])
 
 for item in P:
     print(item)
+```
 
-
+### python的数组
+```pyhon
 # python的数组的元素删除有两种方式一种是M.pop(),另外一种是del M[i],两种用法遍历时的 for 用不了
 M = [0,1,2,3,5,3,2,1]
 for num in M:
