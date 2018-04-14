@@ -4,7 +4,7 @@ title:      "Welcome to Mas9uerade's Blog"
 subtitle:   " \"Hello World, Hello Blog\""
 date:       2018-04-14 17:57:00
 author:     "Mas9uerade"
-header-img: "img/watdog2_sf.jpg"
+header-img: "img/watchdog2_sf.jpg"
 tags:
     - 闲谈
 ---

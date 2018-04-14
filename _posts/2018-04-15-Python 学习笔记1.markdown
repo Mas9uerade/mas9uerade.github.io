@@ -1,0 +1,216 @@
+---
+layout:     post
+title:      "Python学习笔记(1)"
+subtitle:   " \"Python学习\""
+date:       2018-04-14 21:21:00
+author:     "Mas9uerade"
+header-img: "img/watchdog2_sf.jpg"
+tags:
+    - Python
+---
+
+> “上周简单地学习了Python的基础语法和API，整理一下加深理解和印象”
+
+
+##Python的环境搭建
+
+其实，之前因为工作需要，使用python做过简单的数据分析处理脚本，但是在windows平台上单纯的用notepad++和cmd进行代码编写效率是比较低的，因此这次选择了[PyCharm](https://www.jetbrains.com/pycharm/)这个IDE作为编译和调试的环境,界面类似Android Studio，因此这次上手还是很快的。
+注意事项：
+1. python npm的功能直接集成到了IDE内，安装各类模块/第三方库都很方便；
+2. 需要对每个工程都设置一遍Python的运行环境。
+
+##Python的函数传参
+
+Python作为解释性语言，与其他编译型语言最大的不同点，或者说最初接触python需要注意的地方就是python的函数传参。
+参考[Python 的函数是怎么传递参数的？](https://www.zhihu.com/question/20591688)
+
+1. __Python中有可变对象（比如列表List）和不可变对象（比如字符串），在参数传递时分为两种情况：
+ 	a.对于不可变对象作为函数参数，相当于C系语言的值传递；
+	b.对于可变对象作为函数参数，相当于C系语言的引用传递。__
+
+2. __在Python中，对于不可变对象，调用自身的任意方法，并不会改变对象自身的内容，这些方法会创建新的对象并返回，保证了不可变对象本身是永远不可变的。__
+
+这里先用了一个交换函数作为例子，交换失败的swap_error为例，传入了a,b，之后交换了值，但由于x,y均为不可变对象，因此传入x,y时实际上new了两个新的对象，然后赋上了原值，所以return后，x,y值未交换。
+
+所以要交换值就不用函数，直接x,y = y,x更方便
+```python
+def swap_error(a,b):
+    a,b = b,a
+    return
+
+def swap_suc(a,b):
+    return b,a
+
+x = 1
+y = 2
+
+print(x,y)
+swap_error(x,y)
+print(x,y)
+x,y = swap_suc(x,y)
+print(x,y)
+```
+
+##Python的Class
+###1. 多态，继承 
+Python的Class中的函数分为两种：
+
+下面的例子，是python class多态的体现，子类的函数覆盖父类函数，跟其他语言没什么本质上的区别
+```python
+class Employee:
+    'Common base class for all employees'
+    empCount = 0
+
+    def __init__(self, name, salary): #构造函数
+        self.name = name
+        self.salary = salary
+        Employee.empCount += 1
+        print("offer ", self.name, " with salary :", self.salary)
+
+    def __del__(self):          #析构函数
+        print(self.name, "has been fired")
+        Employee.empCount -=1;
+
+    def displayCount(self):
+        print("Total Employee %d" % Employee.empCount);
+
+    def displayEmployee(self):
+        print("name : ", self.name, " Salary: ", self.salary);
+
+class Boss(Employee):           #继承与多态
+    def __init__(self, name):
+        self.name = name
+        self.salary = 1000000000
+        Employee.empCount += 1
+        print("offer ", self.name, " with salary :", self.salary )
+
+    def displayEmployee(self):
+        print("name : ", self.name, " Salary: Salary of Boss is Screct");
+
+# cindy = Employee("Cindy", 1000)
+# cindy.displayEmployee()
+# roger = Boss("Roger")
+# roger.displayEmployee()
+```
+
+在这里就想到了Python的函数重载Overload问题，[为什么 Python 不支持函数重载？其他函数大部分都支持的？](https://www.zhihu.com/question/20053359)，其中高赞回答的解释：
+__函数重载主要是为了解决两个问题：
+a.可变参数类型。 (这点对python来说根本不需要使用重载，之后再谈)
+b.可变参数个数。 (对那些缺少的参数设定为缺省参数来解决问题)
+python在这两个问题上的表现使得它不需要再去使用函数重载来解决这些问题。___
+
+###Python的操作符重载
+既然提到了重载，就可以说一下Python的操作符重载与内置对象的重载（上面的类的重载）
+```Python
+class Number:
+    def __init__(self,start):
+        self.data = start
+    def __sub__(self,other):
+        return Number(self.data + other)
+
+print("Operator Overload")
+X = Number(5)
+print(X.data)
+Y = X -2
+print(Y.data)
+```
+
+在类中，对内置对象（例如，整数和列表）所能做的事，几乎都有相应的特殊名称的重载方法。
+|   方法    |  重载    | 调用                                      |
+| --------- | -------- | ----------------------------------------- |
+| \_\_init\_\_  | 构造函数 | 对象建立：X = Class(args)  |
+| \_\_del\_\_|析构函数      |X对象收回      |
+| \_\_add\_\_   | 运算符+  | 如果没有_iadd_,X+Y,X+=Y     |
+| \_\_or\_\_|   运算符\|(位OR)|如果没有_ior_,X\|Y,X\|=Y|
+| \_\_repr\_\_, \_\_str\_\_|打印、转换|print（X）、repr(X),str(X)|
+| \_\_call\_\_|函数调用|X(\*arg,\*\*karg)|
+| \_\_getattr\_\_ |点号运算|X.undefined|
+| \_\_setattr\_\_ |属性赋值语句|X.any = value|
+| \_\_delatrr\_\_ | 	属性删除|del X.any|
+|\_\_getattribute\_\_|	属性获取|	X.any|
+| \_\_getitem\_\_	|索引运算	|X[key],X[i:j],没\_\_iter\_\_时的for循环和其他迭代器|
+| \_\_setitem\_\_	|索引赋值语句|	X[key] = value,X[i:j] = sequence|
+| \_\_delitem\_\_	|索引和分片删除|	del X[key],del X[i:j]|
+| \_\_len\_\_	|长度|	len(X),如果没有\_\_bool\_\_,真值测试|
+| \_\_bool\_\_	|布尔测试|	bool(X),真测试|
+| \_\_lt\_\_,\_\_gt\_\_|	特定的比较|	X < Y,X > Y(less than, greater than)|
+| \_\_le\_\_,\_\_ge\_\_,|	 	|X<=Y,X >= Y(less or equal, greater or equal)|
+| \_\_eq\_\_,\_\_ne\_\_	| 	|X == Y,X != Y (equal, neagtive equal)|
+| \_\_radd\_\_	|右侧加法|	Other+X|
+| \_\_iadd\_\_	|实地（增强的）加法	|X += Y （or else \_\_add\_\_）|
+| \_\_iter\_\_,\_\_next\_\_|	迭代环境|	I = iter(X),next(I)|
+| \_\_contains\_\_	|成员关系测试|	item in X （任何可迭代的）|
+| \_\_index\_\_	|整数值|	hex(X),bin(X),oct(X),O[X],O[X:]|
+| \_\_enter\_\_,\_\_exit\_\_|	环境管理器|	with obj as var:|
+| \_\_get\_\_,\_\_set\_\_|	描述符属性|	X.attr,X.attr = value,del X.attr|
+| \_\_new\_\_	|创建|	在\_\_init\_\_之前创建对象|
+
+```python
+print("get/set方式")
+class Indexer:
+    def __getitem__(self,index):
+        return index**2             #平方
+
+X = Indexer()
+
+print(X[2])
+
+for i in range(5):
+    print(X[i])
+
+L = [5,6,7,8,9]
+print( L[2:4])  #[7, 8]
+print(L[1:])    #[6, 7, 8, 9]
+print( L[:-1])  #[5, 6, 7, 8]
+print( L[::2])  #[5, 7, 9]
+
+
+class stepper:
+    def __getitem__(self, i):
+        return self.data[i]
+
+P = stepper()
+P.data = 'Spam'
+print(P[1])
+
+for item in P:
+    print(item)
+
+
+# python的数组的元素删除有两种方式一种是M.pop(),另外一种是del M[i],两种用法遍历时的 for 用不了
+M = [0,1,2,3,5,3,2,1]
+for num in M:
+    if num > 2:
+        print(num)
+        print("前",M)
+        M.remove(num)
+        print("后",M)
+print(M)
+
+M = [0,1,2,3,5,3,2,1]
+i = 0
+for num in M:
+    if num > 2:
+        print(i, num)
+        print("前",M)
+        del M[i]
+        print("后",M)
+        i-= 1
+    i+= 1
+print(M)
+
+#所以可以使用lambda表达式进行过滤
+
+Lam = filter(lambda x: x> 2, M)
+print(Lam)
+
+print(Lam)
+
+a = [0,1,2,3,5,3,2,1]
+a = filter(lambda x: x <= 2, a)
+print(a)
+a = list(a)
+print(a)
+for x in a:
+    print(x)
+```
