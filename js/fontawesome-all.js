@@ -1870,7 +1870,7 @@ function makeInlineSvgAbstract(params) {
       'data-icon': iconName,
       'class': attrClass,
       'role': 'img',
-      'xmlns': 'http://www.w3.org/2000/svg',
+      'xmlns': 'http://www.w3.org/TR/SVG11',
       'viewBox': '0 0 ' + width + ' ' + height
     })
   };
