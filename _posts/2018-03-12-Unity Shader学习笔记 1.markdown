@@ -2,9 +2,9 @@
 layout:     post
 title:      "Unity3d Shader 入门精要笔记（1）"
 subtitle:   " \"Unity Shader 入门笔记\""
-date:       2018-04-14 17:57:00
+date:       2018-03-12 10:00:00
 author:     "Mas9uerade"
-header-img: "img/watdog2_sf.jpg"
+header-img: "img/unityshader.jpg"
 tags:
     - Unity3d
     - Shader
