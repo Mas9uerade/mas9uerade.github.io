@@ -53,7 +53,7 @@ print(x,y)
 
 ## Python的Class
 ### 1. 多态，继承 
-下面的例子，是python class多态的体现，子类的函数覆盖父类函数，跟其他语言没什么本质上的区别
+下面的例子，是python class多态的体现，子类的函数覆盖父类函数，跟其他语言没什么本质上的区别  
 ```python
 class Employee:
     'Common base class for all employees'
@@ -91,11 +91,11 @@ class Boss(Employee):           #继承与多态
 # roger.displayEmployee()
 ```
 
-在这里就想到了Python的函数重载Overload问题，[为什么 Python 不支持函数重载？其他函数大部分都支持的？](https://www.zhihu.com/question/20053359)，其中高赞回答的解释：
-__函数重载主要是为了解决两个问题：
-a.可变参数类型。 (这点对python来说根本不需要使用重载，之后再谈)
-b.可变参数个数。 (对那些缺少的参数设定为缺省参数来解决问题)
-python在这两个问题上的表现使得它不需要再去使用函数重载来解决这些问题。___
+在这里就想到了Python的函数重载Overload问题，[为什么 Python 不支持函数重载？其他函数大部分都支持的？](https://www.zhihu.com/question/20053359)，其中高赞回答的解释：  
+__函数重载主要是为了解决两个问题：  
+a.可变参数类型。 (这点对python来说根本不需要使用重载，之后再谈)  
+b.可变参数个数。 (对那些缺少的参数设定为缺省参数来解决问题)  
+python在这两个问题上的表现使得它不需要再去使用函数重载来解决这些问题。___  
 ### Python的操作符重载
 既然提到了重载，就可以说一下Python的操作符重载与内置对象的重载
 ```Python
@@ -111,36 +111,36 @@ print(X.data)
 Y = X -2
 print(Y.data)
 ```
-在类中，对内置对象（例如，整数和列表）所能做的事，几乎都有相应的特殊名称的重载方法。
-
-|   方法    |  重载    | 调用                                      |
-| --------- | -------- | ----------------------------------------- |
-| \_\_init\_\_  | 构造函数 | 对象建立：X = Class(args)  |
-| \_\_del\_\_|析构函数      |X对象收回      |
-| \_\_add\_\_   | 运算符+  | 如果没有_iadd_,X+Y,X+=Y     |
-| \_\_or\_\_|   运算符\|(位OR)|如果没有_ior_,X\|Y,X\|=Y|
-| \_\_repr\_\_, \_\_str\_\_|打印、转换|print（X）、repr(X),str(X)|
-| \_\_call\_\_|函数调用|X(\*arg,\*\*karg)|
-| \_\_getattr\_\_ |点号运算|X.undefined|
-| \_\_setattr\_\_ |属性赋值语句|X.any = value|
-| \_\_delatrr\_\_ | 	属性删除|del X.any|
-|\_\_getattribute\_\_|	属性获取|	X.any|
-| \_\_getitem\_\_	|索引运算	|X[key],X[i:j],没\_\_iter\_\_时的for循环和其他迭代器|
-| \_\_setitem\_\_	|索引赋值语句|	X[key] = value,X[i:j] = sequence|
-| \_\_delitem\_\_	|索引和分片删除|	del X[key],del X[i:j]|
-| \_\_len\_\_	|长度|	len(X),如果没有\_\_bool\_\_,真值测试|
-| \_\_bool\_\_	|布尔测试|	bool(X),真测试|
-| \_\_lt\_\_,\_\_gt\_\_|	特定的比较|	X < Y,X > Y(less than, greater than)|
-| \_\_le\_\_,\_\_ge\_\_,|	 	|X<=Y,X >= Y(less or equal, greater or equal)|
-| \_\_eq\_\_,\_\_ne\_\_	| 	|X == Y,X != Y (equal, neagtive equal)|
-| \_\_radd\_\_	|右侧加法|	Other+X|
-| \_\_iadd\_\_	|实地（增强的）加法	|X += Y （or else \_\_add\_\_）|
-| \_\_iter\_\_,\_\_next\_\_|	迭代环境|	I = iter(X),next(I)|
-| \_\_contains\_\_	|成员关系测试|	item in X （任何可迭代的）|
-| \_\_index\_\_	|整数值|	hex(X),bin(X),oct(X),O[X],O[X:]|
-| \_\_enter\_\_,\_\_exit\_\_|	环境管理器|	with obj as var:|
-| \_\_get\_\_,\_\_set\_\_|	描述符属性|	X.attr,X.attr = value,del X.attr|
-| \_\_new\_\_	|创建|	在\_\_init\_\_之前创建对象|
+在类中，对内置对象（例如，整数和列表）所能做的事，几乎都有相应的特殊名称的重载方法。  
+  
+|   方法    |  重载    | 调用                                      |  
+| --------- | -------- | ----------------------------------------- |  
+| \_\_init\_\_  | 构造函数 | 对象建立：X = Class(args)  |  
+| \_\_del\_\_|析构函数      |X对象收回      |  
+| \_\_add\_\_   | 运算符+  | 如果没有_iadd_,X+Y,X+=Y     |  
+| \_\_or\_\_|   运算符\|(位OR)|如果没有_ior_,X\|Y,X\|=Y|  
+| \_\_repr\_\_, \_\_str\_\_|打印、转换|print（X）、repr(X),str(X)|  
+| \_\_call\_\_|函数调用|X(\*arg,\*\*karg)|  
+| \_\_getattr\_\_ |点号运算|X.undefined|  
+| \_\_setattr\_\_ |属性赋值语句|X.any = value|  
+| \_\_delatrr\_\_ | 	属性删除|del X.any|  
+|\_\_getattribute\_\_|	属性获取|	X.any|  
+| \_\_getitem\_\_	|索引运算	|X[key],X[i:j],没\_\_iter\_\_时的for循环和其他迭代器|  
+| \_\_setitem\_\_	|索引赋值语句|	X[key] = value,X[i:j] = sequence|  
+| \_\_delitem\_\_	|索引和分片删除|	del X[key],del X[i:j]|  
+| \_\_len\_\_	|长度|	len(X),如果没有\_\_bool\_\_,真值测试|  
+| \_\_bool\_\_	|布尔测试|	bool(X),真测试|  
+| \_\_lt\_\_,\_\_gt\_\_|	特定的比较|	X < Y,X > Y(less than, greater than)|  
+| \_\_le\_\_,\_\_ge\_\_,|	 	|X<=Y,X >= Y(less or equal, greater or equal)|  
+| \_\_eq\_\_,\_\_ne\_\_	| 	|X == Y,X != Y (equal, neagtive equal)|  
+| \_\_radd\_\_	|右侧加法|	Other+X|  
+| \_\_iadd\_\_	|实地（增强的）加法	|X += Y （or else \_\_add\_\_）|  
+| \_\_iter\_\_,\_\_next\_\_|	迭代环境|	I = iter(X),next(I)|  
+| \_\_contains\_\_	|成员关系测试|	item in X （任何可迭代的）|  
+| \_\_index\_\_	|整数值|	hex(X),bin(X),oct(X),O[X],O[X:]|  
+| \_\_enter\_\_,\_\_exit\_\_|	环境管理器|	with obj as var:|  
+| \_\_get\_\_,\_\_set\_\_|	描述符属性|	X.attr,X.attr = value,del X.attr|  
+| \_\_new\_\_	|创建|	在\_\_init\_\_之前创建对象|  
 
 ```python
 print("get/set方式")
