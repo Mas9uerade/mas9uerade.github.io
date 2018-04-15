@@ -1382,7 +1382,6 @@ var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
 var UNITS_IN_GRID = 16;
 var DEFAULT_FAMILY_PREFIX = 'fa';
-var DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
 var DATA_FA_I2SVG = 'data-fa-i2svg';
 var DATA_FA_PSEUDO_ELEMENT = 'data-fa-pseudo-element';
 var HTML_CLASS_I2SVG_BASE_CLASS = 'fontawesome-i2svg';
