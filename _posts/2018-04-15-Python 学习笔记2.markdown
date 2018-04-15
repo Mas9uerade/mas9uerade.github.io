@@ -2,7 +2,7 @@
 layout:     post
 title:      "Python学习2-反射"
 subtitle:   " \"Python学习\""
-date:       2018-04-14 22:59:00
+date:       2018-04-15 23:19:00
 author:     "Mas9uerade"
 header-img: "img/watchdog2_sf.jpg"
 tags:
@@ -13,3 +13,76 @@ tags:
 
 
 ## Python中的反射
+Pyhthon可查类型、可反射。
+反射的方式有：  
+1.type()查类型；
+```python
+
+a = str("sssss")
+
+print(type([]) )
+
+print(type({}))
+
+print(type(''))
+
+print(type(0.0))
+```
+
+2.isinstance()查引用；
+```python
+class Plant:
+    life = 0
+    pass
+class Tree(Plant): pass                  # Dummy class derived from Plant
+tree = Tree()                             # A new instance of Tree class
+
+print("isinstance")
+print (isinstance(tree, Tree))             # True
+print (isinstance(tree, Plant))            # True
+print (isinstance(tree, object) )          # True
+print (type(tree) is Tree)                 # False
+print (type(tree).__name__ == "instance")  # True
+print (tree.__class__.__name__ == "Tree")  # True
+```
+
+3.issubclass()查继承；  
+
+```python
+print("isubclass")
+print (issubclass(Tree, Plant))            # True
+print (issubclass(Tree, object))           # False in Python 2
+print (issubclass(int, object))            # True
+#print (issubclass(tree, Plant))            # Error - tree is not a class
+```
+4.callable()是否可调用； 
+
+```python
+
+print("callable")
+print(callable([1,2].pop))
+print(callable([1,2].pop()))
+
+```
+
+5.dir()查包含的属性名；
+
+```python
+
+print("Dir")
+print(dir(3))
+print(dir("HelloWorld"))
+print(dir([1,2]))
+print(dir(re))
+
+```
+
+6. getattr() 第一个参数是对象实例obj,name是个字符串，是对象的成员函数名字或者成员变量，default当对象没有这个属相的时候就返回默认值，如果没有提供默认值就返回异常。
+
+```python
+print("attribute")
+print(getattr(tree, "life"))
+#print(getattr(tree, "life?")) 没有就会报错
+print(getattr(tree, "life?", None))
+
+```
