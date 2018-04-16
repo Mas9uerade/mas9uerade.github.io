@@ -35,8 +35,7 @@ header-img: "img/zelda2.jpg"
 			{% for tag in site.tags %}
 			<div class="one-tag-list">
 			  	<span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
-			  		<i class = "fa fa-tag"></i>
-			  		<span img = "/img/tag.svg"></span>
+			  		<i class = "fa fa-tag"></i>			  		
                     <span class="tag-text">{{ tag[0] }}</span>
                 </span>
 				{% for post in tag[1] %}
