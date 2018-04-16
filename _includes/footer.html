@@ -1,10 +1,19 @@
 <!-- Footer -->
 <footer>
-    <script defer src="/js/fontawesome-all.js"></script>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
+                    {% if site.RSS %}
+                    <li>
+                        <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
                     {% if site.twitter_username %}
                     <li>
                         <a href="https://twitter.com/{{ site.twitter_username }}">
@@ -48,14 +57,27 @@
                             </span>
                         </a>
                     </li>
-                    {% endif %}                   
+                    {% endif %}
+                    {% if site.github_username %}
                     <li>
-                        <a target="_blank" href="https://github.com/Mas9uerade">
-                            <span class="fa-github">
-                                <i class="fab fa-github"></i>
+                        <a target="_blank" href="https://github.com/{{ site.github_username }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
-                    </li>                 
+                    </li>
+                    {% endif %}
+                    {% if site.douban_username %}
+                    <li>
+                        <a target="_blank" href="https://www.douban.com/people/{{ site.douban_username }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">豆</i>
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <p class="copyright text-muted">
                     <a href = "http://https://github.com/Mas9uerade/mas9uerade.github.io">Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}</a>
@@ -89,27 +111,11 @@
     }
 </script>
 
-<!-- 
-     Because of the native support for backtick-style fenced code blocks 
-     right within the Markdown is landed in Github Pages, 
-     From V1.6, There is no need for Highlight.js, 
-     so Huxblog drops it officially.
-
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
--->
-<!--
-    <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
-
-
-<!-- jquery.tagcloud.js -->
+<!-- Highlight.js -->
 <script>
+    async("https://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+        hljs.initHighlightingOnLoad();
+    })
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
         async("/js/jquery.tagcloud.js",function(){
@@ -120,6 +126,15 @@
             $('#tag_cloud a').tagcloud();
         })
     }
+</script>
+<link href="https://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
 </script>
 
 
