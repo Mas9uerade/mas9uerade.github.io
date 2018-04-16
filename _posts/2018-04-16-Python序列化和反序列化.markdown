@@ -1,0 +1,190 @@
+---
+layout:     post
+title:      "Python序列化和反序列化"
+subtitle:   "初学Python"
+date:       2018-04-16 12:14:00
+author:     "Nankenan"
+header-img: "img/watchdog2_sf.jpg"
+tags:
+    - Python
+---
+
+> Reposted from [nankenan](https://nankenan.github.io)
+
+# Python序列化和反序列化
+
+转载于https://www.cnblogs.com/sun-haiyu/p/7087088.html
+
+通过将对象序列化可以将其存储在变量或者文件中，可以保存当时对象的状态，实现其生命周期的延长。并且需要时可以再次将这个对象读取出来。Python中有几个常用模块可实现这一功能。
+
+## pickle模块
+
+### 存储在变量中
+
+`dumps(obj)`返回存入的**字节**
+
+```
+dic = {'age': 23, 'job': 'student'}
+byte_data = pickle.dumps(dic)
+# out -> b'\x80\x03}q\x00(X\x03\x00\x00\...'
+print(byte_data)
+```
+
+### 读取数据
+
+数据以字节保存在了`byte_data`变量中，需要再次使用的时候使用`loads`函数就行了。
+
+```
+obj = pickle.loads(byte_data)
+print(obj)
+```
+
+### 存储在文件中
+
+也可以存在文件中，使得对象持久化。使用的是`dump`和`load`函数，注意和上面的区别，少了`s`。由于**pickle写入的是二进制数据**，所以打开方式需要以`wb`和`rb`的模式。
+
+```
+# 序列化
+with open('abc.pkl', 'wb') as f:
+    dic = {'age': 23, 'job': 'student'}
+    pickle.dump(dic, f)
+# 反序列化
+with open('abc.pkl', 'rb') as f:
+    aa = pickle.load(f)
+    print(aa)
+    print(type(aa))  # <class 'dict'>
+```
+
+## 序列化用户自定义对象
+
+假如我写了个类叫做Person
+
+```
+class Person:
+    def __init__(self, name, age, job):
+        self.name = name
+        self.age = age
+        self.job = job
+
+    def work(self):
+        print(self.name, 'is working...')
+```
+
+pickle当然也能写入，**不仅可以写入类本身，也能写入它的一个实例**。
+
+```
+# 将实例存储在变量中，当然也能存在文件中
+a_person = Person('abc', 22, 'waiter')
+person_abc = pickle.dumps(a_person)
+p = pickle.loads(person_abc)
+p.work()
+# 将类本身存储在变量中，loads的时候返回类本身，而非它的一个实例
+class_Person = pickle.dumps(Person)
+Person = pickle.loads(class_Person)
+p = Person('Bob', 23, 'Student')
+p.work()
+
+# 下面这个例子演示的就是将类存储在文件中
+# 序列化
+with open('person.pkl', 'wb') as f:
+    pickle.dump(Person, f)
+# 反序列化
+with open('person.pkl', 'rb') as f:
+    Person = pickle.load(f)
+    aa = Person('gg', 23, '6')
+    aa.work()
+```
+
+## json模块
+
+pickle可以很方便地序列化所有对象。不过json作为更为标准的格式，具有更好的可读性（pickle是二进制数据）和跨平台性。是个不错的选择。
+
+json使用的四个函数名和pickle一致。
+
+### 序列化为字符串
+
+```
+dic = {'age': 23, 'job': 'student'}
+dic_str = json.dumps(dic)
+print(type(dic_str), dic_str)
+# out: <class 'str'> {"age": 23, "job": "student"}
+
+dic_obj = json.loads(dic_str)
+print(type(dic_obj), dic_obj)
+# out: <class 'dict'> {'age': 23, 'job': 'student'}
+```
+
+可以看到，`dumps`函数将对象转换成了字符串。`loads`函数又将其恢复成字典。
+
+### 存储为json文件
+
+也可以存储在json文件中
+
+```
+dic = {'age': 23, 'job': 'student'}
+with open('abc.json', 'w', encoding='utf-8') as f:
+    json.dump(dic, f)
+
+with open('abc.json', encoding='utf-8') as f:
+    obj = json.load(f)
+    print(obj)
+```
+
+### 存储自定义对象
+
+还是上面的Person对象。如果直接序列化会报错
+
+```
+aa = Person('Bob', 23, 'Student')
+with open('abc.json', 'w', encoding='utf-8') as f:
+    json.dump(aa, f) # 报错
+```
+
+`Object of type 'Person' is not JSON serializable`此时`dump`函数里传一个参`default`就可以了，这个参数接受一个函数，这个函数可以将对象转换为字典。
+
+写一个就是了
+
+```
+def person2dict(person):
+    return {'name': person.name,
+            'age': person.age,
+            'job': person.job}
+```
+
+这样返回的就是一个字典了，对象实例有个方法可以简化这一过程。直接调用实例的`__dict__`。例如
+
+```
+print(aa.__dict) # {'name': 'Bob', 'age': 23, 'job': 'Student'}
+```
+
+很方便。
+
+同时在读取的时候load出来的是一个字典，再转回对象就可，同样需要一个`object_hook`参数，该参数接收一个函数，用于将字典转为对象。
+
+```
+def dict2person(dic):
+    return Person(dic['name'], dic['age'], dic['job'])
+```
+
+于是完整的程序应该写成下面这样
+
+```
+with open('abc.json', 'w', encoding='utf-8') as f:
+    json.dump(aa, f, default=person2dict)
+
+with open('abc.json', encoding='utf-8') as f:
+    obj = json.load(f, object_hook=dict2person)
+    print(obj.name, obj.age, obj.job)
+    obj.work()
+```
+
+由于可以使用`__dict__`代替`person2dict`函数，再使用lambda函数简化。
+
+```
+with open('abc.json', 'w', encoding='utf-8') as f:
+   json.dump(aa, f, default=lambda obj: obj.__dict__)
+```
+
+以上是存储到文件，存储到变量也是类似操作。
+
+不过就我现在所学，不知道如何像pickle一样方便的将我们自定义的**类本身**使用json序列化，或许要用到其他扩展函数。以后用到了再说。
