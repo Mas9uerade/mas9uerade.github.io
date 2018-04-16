@@ -2,90 +2,224 @@
 layout:     post
 title:      "Python学习3-Delegate"
 subtitle:   " \"Python学习\""
-date:       2018-04-16 23:19:00
+date:       2018-04-17 00:20:00
 author:     "Mas9uerade"
 header-img: "img/watchdog2_sf.jpg"
 tags:
     - Python
 ---
 
-> “上周简单地学习了Python的基础语法和API，整理一下加深理解和印象”
+> “Python的委托”
 
 
 ## Python中的Delegate  
 
-由于python是一个动态语言，
+首先，python是一个动态语言，附上一段[Wiki](https://https://en.wikipedia.org/wiki/Dynamic_programming_language)上对动态语言的定义。
 
-Pyhthon可查类型、可反射。
-反射的方式有：  
-1.type()查类型；
+Dynamic programming language, in computer science, is a class of high-level programming languages which, at runtime, execute many common programming behaviors that static programming languages perform during compilation. These behaviors could include extension of the program, by adding new code, by extending objects and definitions, or by modifying the type system. Although similar behaviours can be emulated in nearly any language, with varying degrees of difficulty, complexity and performance costs, dynamic languages provide direct tools to make use of them. Many of these features were first implemented as native features in the Lisp programming language.
+
+Most dynamic languages are also dynamically typed, but not all are. Dynamic languages are frequently (but not always) referred to as "scripting languages", although the term "scripting language" in its narrowest sense refers to languages specific to a given run-time environment.
+
+因此，Python的委托的实现，非常简单,在这个例子中，B的一个属性为A(),并重载了getattr(), 使得B可以通过getattr()访问A的属性,从而访问了A的函数f_one()，但也由于重载的原因，不能访问自己的函数f_three();
+
 ```python
+class A:
+    def f_one(self, x):
+        pass
 
-a = str("sssss")
+    def f_two(self):
+        pass
 
-print(type([]) )
+class B():
+    def __init__(self):
+        self._a = A()
 
-print(type({}))
+    def f_three(self):
+        pass
 
-print(type(''))
+    def __getattr__(self, name):
+        return getattr(self._a, name)
 
-print(type(0.0))
+
+b = B();
+print(b.__getattr__("f_one"))
+#print(b.__getattr__(("f_three")))     
 ```
 
-2.isinstance()查引用；
+这个例子是展示使用getattr()直接访问属性的办法，直接让一个Class获取了wrapper的属性,去调用wrapper的函数
 ```python
-class Plant:
-    life = 0
+class Wrapper:
+    def __init__(self, obj):
+        self.wrapper = obj
+
+    def __getattr__(self, item):
+        print("trace:", item)
+        return getattr(self.wrapper, item)
+
+
+if __name__ == '__main__':
+    x = Wrapper([1, 2, 3, 4])
+    x.append(35)
+    x.remove(2)
+    print(x.wrapper)  # [1,3,4,35]
     pass
-class Tree(Plant): pass                  # Dummy class derived from Plant
-tree = Tree()                             # A new instance of Tree class
-
-print("isinstance")
-print (isinstance(tree, Tree))             # True
-print (isinstance(tree, Plant))            # True
-print (isinstance(tree, object) )          # True
-print (type(tree) is Tree)                 # False
-print (type(tree).__name__ == "instance")  # True
-print (tree.__class__.__name__ == "Tree")  # True
 ```
 
-3.issubclass()查继承；  
-
+最后是C#式的Delegate的实现，全局函数，类的函数，回调都能被成功调用
 ```python
-print("isubclass")
-print (issubclass(Tree, Plant))            # True
-print (issubclass(Tree, object))           # False in Python 2
-print (issubclass(int, object))            # True
-#print (issubclass(tree, Plant))            # Error - tree is not a class
+#  C#式的delegate
+class Foo(object):
+  def __init__(self):
+    self._bar_observers = []
+
+  def add_bar_observer(self, observer):
+    self._bar_observers.append(observer)
+
+  def notify_bar(self, param):
+    for observer in self._bar_observers:
+      observer(param)
+
+def observer(param):
+  print ("observer(%s)" % param)
+
+class Baz(object):
+  def observer(self, param):
+    print ("Baz.observer(%s)" % param)
+
+class CallableClass(object):
+  def __call__(self, param):
+    print ("CallableClass.__call__(%s)" % param)
+
+baz = Baz()
+
+foo = Foo()
+class BaseEvent(object):
+    temp = 0
+    def __init__(self):
+        self.temp = 1
+
+class BigEvent(BaseEvent):
+    def __init__(self):
+        super(BigEvent, self).__init__()
+        print("BigEvent Run fast")
+
+#super相当于C#的base
+
+class EventCenter:
+    def __init__(self):
+        self. delList = dict()
+
+    def addevent(self, eventid, eventhandle):
+        if eventid in self.delList.keys():
+            self.delList[eventid].append(eventhandle)
+        else:
+            self.delList.setdefault(eventid,[])
+            self.delList[eventid].append(eventhandle)
+
+    def sendevnet(self, eventid, param):
+        if eventid in self.delList.keys():
+            for evhandle in self.delList.get(eventid):
+                evhandle(param)
+                #self.delList[eventid](param)
+                #print(self.delList[eventid](param))
+
+    def removeevent(self,eventid, eventhandle):
+        if eventid in self.delList.keys():
+            dictitem = {eventid: []}
+            for evhandle in self.delList.get(eventid):
+                if eventhandle != evhandle:
+                    dictitem[eventid].append(evhandle)
+            if dictitem.values().__len__() > 0:
+                self.delList.update(dictitem)
+
+def method1(baseevent):
+    print("method1", baseevent.temp)
+
+def method2(baseevent):
+    print("method2", baseevent.temp)
+
+def method3(baseevent):
+    print("method3", baseevent.temp)
+
+
+aeventcenter = EventCenter()
+baseev = BaseEvent()
+bigev = BigEvent()
+aeventcenter.addevent(1, method2)
+aeventcenter.addevent(1,method1)
+aeventcenter.addevent(1,method3)
+aeventcenter.removeevent(1, method3)
+aeventcenter.sendevnet(1,bigev)
+foo.add_bar_observer(observer) # function
+foo.add_bar_observer(baz.observer) # bound method
+foo.add_bar_observer(CallableClass()) # callable instance
+
+foo.notify_bar(3)
 ```
-4.callable()是否可调用； 
 
+最后用Python实现一个事件中心
 ```python
+#事件基类
+class BaseEvent(object):
+    temp = 0
+    def __init__(self):
+        self.temp = 1
 
-print("callable")
-print(callable([1,2].pop))
-print(callable([1,2].pop()))
+#事件子类
+class BigEvent(BaseEvent):
+    def __init__(self):
+        super(BigEvent, self).__init__()
+        print("BigEvent Run fast")
 
-```
+#super相当于C#的base
 
-5.dir()查包含的属性名；
+#事件中心
+class EventCenter:
+    def __init__(self):
+        self. delList = dict() #使用dict持有引用
 
-```python
+    #注册事件    
+    def addevent(self, eventid, eventhandle):
+        if eventid in self.delList.keys():
+            self.delList[eventid].append(eventhandle)
+        else:
+            self.delList.setdefault(eventid,[])
+            self.delList[eventid].append(eventhandle)
 
-print("Dir")
-print(dir(3))
-print(dir("HelloWorld"))
-print(dir([1,2]))
-print(dir(re))
+    #发送事件 -- python的优势在这里体现，参数的传入不需要限定类型
+    def sendevnet(self, eventid, param):
+        if eventid in self.delList.keys():
+            for evhandle in self.delList.get(eventid):
+                evhandle(param)
+                #self.delList[eventid](param) 这个方式是不行的
+                #print(self.delList[eventid](param))
 
-```
+    #删除事件 -- Python的Dict相较于C#的dict和delegate的难用也体现出来了    
+    def removeevent(self,eventid, eventhandle):
+        if eventid in self.delList.keys():
+            dictitem = {eventid: []}
+            for evhandle in self.delList.get(eventid):
+                if eventhandle != evhandle:
+                    dictitem[eventid].append(evhandle)
+            if dictitem.values().__len__() > 0:
+                self.delList.update(dictitem)
 
-6. getattr() 第一个参数是对象实例obj,name是个字符串，是对象的成员函数名字或者成员变量，default当对象没有这个属相的时候就返回默认值，如果没有提供默认值就返回异常。
+def method1(baseevent):
+    print("method1", baseevent.temp)
 
-```python
-print("attribute")
-print(getattr(tree, "life"))
-#print(getattr(tree, "life?")) 没有就会报错
-print(getattr(tree, "life?", None))
+def method2(baseevent):
+    print("method2", baseevent.temp)
 
+def method3(baseevent):
+    print("method3", baseevent.temp)
+
+
+aeventcenter = EventCenter()
+baseev = BaseEvent()
+bigev = BigEvent()
+aeventcenter.addevent(1, method2)
+aeventcenter.addevent(1,method1)
+aeventcenter.addevent(1,method3)
+aeventcenter.removeevent(1, method3)
+aeventcenter.sendevnet(1,bigev)
 ```
