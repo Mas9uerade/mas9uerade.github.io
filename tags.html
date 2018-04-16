@@ -5,6 +5,7 @@ description: To explpore the real world
 header-img: "img/zelda2.jpg"
 ---
 
+
 <!-- Page Header -->
 <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
     <div class="container">
@@ -18,9 +19,9 @@ header-img: "img/zelda2.jpg"
         </div>
     </div>
 </header>
+
 <!-- Main Content -->
 <div class="container">
-	<script defer src="/js/fontawesome-all.js"></script>
 	<div class="row">
 		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <!-- 标签云 -->
@@ -33,12 +34,9 @@ header-img: "img/zelda2.jpg"
             <!-- 标签列表 -->
 			{% for tag in site.tags %}
 			<div class="one-tag-list">
-			  	<span class="fa fa-tag " id="{{ tag[0] }}">
-			  		<i class= "fa fa-tag""></i>
+			  	<span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
                     <span class="tag-text">{{ tag[0] }}</span>
                 </span>
-
-
 				{% for post in tag[1] %}
 				  <!-- <li class="listing-item">
 				  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
@@ -61,7 +59,7 @@ header-img: "img/zelda2.jpg"
 				{% endfor %}
 			</div>
 			{% endfor %}
-  
+
 		</div>
 	</div>
 </div>
