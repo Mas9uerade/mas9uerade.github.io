@@ -18,7 +18,7 @@ tags:
 
 ##### 原图
 
-![](https://github.com/Mas9uerade/mas9uerade.github.io/blob/master/_posts/2018-05-02-Unity%20Shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%202/Origin.PNG?raw=true)
+![](https://mas9uerade.github.io/img/FrostGlass_Effected.PNG)
 
 ##### RGB转为灰度图
 ![](https://github.com/Mas9uerade/mas9uerade.github.io/blob/master/_posts/2018-05-02-Unity%20Shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%202/RGB2Gray_Effected.PNG?raw=true)
