@@ -18,13 +18,13 @@ tags:
 
 ##### 原图
 
-![](2018-05-02-Unity Shader学习笔记 2/Origin.PNG)
+![](https://github.com/Mas9uerade/mas9uerade.github.io/blob/master/_posts/2018-05-02-Unity%20Shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%202/Origin.PNG)
 
 ##### RGB转为灰度图
-![](2018-05-02-Unity Shader学习笔记 2/RGB2Gray_Effected.PNG)
+![](https://github.com/Mas9uerade/mas9uerade.github.io/blob/master/_posts/2018-05-02-Unity%20Shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%202/RGB2Gray_Effected.PNG)
 
 ##### 毛玻璃效果
-![](2018-05-02-Unity Shader学习笔记 2/FrostGlass_Effected.PNG)
+![](https://github.com/Mas9uerade/mas9uerade.github.io/blob/master/_posts/2018-05-02-Unity%20Shader%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%202/FrostGlass_Effected.PNG)
 
 ## 基本思路
 1. 首先确定层级，把UI分为两部分，第一部分是会被施加特效的部分，第二部分为不会被施加特效的部分，第二部分是盖在第一部分的UI，然后在两个层级之间插入一张尺寸相同的Image用于覆盖底图，作为施加特效的图片；
