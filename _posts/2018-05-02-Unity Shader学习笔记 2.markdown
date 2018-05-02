@@ -14,9 +14,9 @@ tags:
 
 最近在工程中需要用到一些简单的特效，所以用之前学习的UnityShader制作了相关的特效。
 
-## 特效效果
+## 特效效果 ##
 
-##### 原图
+##### 原图 #####
 
 ![](https://mas9uerade.github.io/img/in-post/UnityShader2/Origin.PNG)
 
@@ -109,7 +109,7 @@ Shader "GrabPassInvert"
 RGB色彩转为灰度，需要用到心理学公式: 
 
 $$
-	Gray = R*0.299 + G*0.587 + B*0.114
+Gray = R*0.299 + G*0.587 + B*0.114
 $$
 
 因此，只需要将片元着色部分修改	
