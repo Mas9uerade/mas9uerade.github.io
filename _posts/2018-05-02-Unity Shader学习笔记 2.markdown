@@ -4,7 +4,7 @@ title:      "Unity3d Shader 入门2"
 subtitle:   " \"Unity Shader\""
 date:       2018-05-02 15:48:00
 author:     "Mas9uerade"
-header-img: "img/watchdog2.jpg"
+header-img: "img/watchdog2_sf.jpg"
 tags:
     - Unity3d
     - Shader
@@ -18,13 +18,13 @@ tags:
 
 ##### 原图
 
-![Origin](../img/in-post/UnityShader2/Origin.PNG)
+![Origin](img/in-post/UnityShader2/Origin.PNG)
 
 ##### RGB转为灰度图
-![Grayscale](../img/in-post/UnityShader2/RGB2Gray_Effected.PNG)
+![Grayscale](mg/in-post/UnityShader2/RGB2Gray_Effected.PNG)
 
 ##### 毛玻璃效果
-![Grayscale](../img/in-post/UnityShader2/FrostGlass_Effected.PNG)
+![Grayscale](img/in-post/UnityShader2/FrostGlass_Effected.PNG)
 
 ## 基本思路
 1. 首先确定层级，把UI分为两部分，第一部分是会被施加特效的部分，第二部分为不会被施加特效的部分，第二部分是盖在第一部分的UI，然后在两个层级之间插入一张尺寸相同的Image用于覆盖底图，作为施加特效的图片；
