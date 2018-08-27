@@ -1,0 +1,72 @@
+---
+layout:     post
+title:      "Unix环境高级编程笔记1"
+subtitle:   " \"Linux\""
+date:       2018-05-02 15:48:00
+author:     "Mas9uerade"
+header-img: "img/watchdog2_sf.jpg"
+tags:
+    - Linux
+---
+
+> “Unix环境高级编程第二版读书笔记 - 1”
+
+
+# Unix基础知识 #
+
+## 如何去写一个配置表 ##
+
+### 文件操作函数与文本操作函数
+参考[https://????] 
+
+### XML的读写
+
+Xml的读写本质是需要一个细分的文本解析过程，但是从头造轮子是不现实的，因此引入libxml2这个MIT开源的Xml - C的库来实现功能,[下载链接]((http://xmlsoft.org/downloads.html));
+
+在Window上编译时发现的问题缺少各种关联库，因此在Windows上测试会比较困难，推荐使用直接使用Linux;
+
+
+### CSV的读写
+
+CSV的读写就相对简单，只是行读写与分离","，使用到的接口有fopen, fclose, fprintf, fgets, strtok;
+```C
+#include <stdio.h>\
+#include <io.h>
+#include <string.h>
+#define MAX_LINE 512 
+int main(int argc, char **argv)
+{
+    char* filename = "./test.csv";
+    FILE *fp;
+    fp = fopen(filename, "w+");
+    fprintf(fp, "id, name, skill \n");
+    fprintf(fp, "%d, %s, %s \n", 1, "sword", "play");
+    fprintf(fp, "%d, %s, %s \n", 2, "hugh", "code");
+    fprintf(fp, "%d, %s, %s \n", 3, "sword", "dance");
+    fprintf(fp, "%d, %s, %s \n", 4, "sword", "sing");
+    fclose(fp);
+    
+    fp = fopen(filename, "r");
+    int line; 
+    char str_line[MAX_LINE];
+    char* comma = ",";
+    char* temp;
+    char* id;
+    //第一行为项
+    fgets(str_line, MAX_LINE, fp);
+    int rowI = 0;
+    while (!feof(fp))
+    {
+        rowI++;
+        fgets(str_line, MAX_LINE, fp);
+        id = strtok(str_line,comma);
+        if (id == NULL) break;  
+        printf("%s", id);
+        while((temp = strtok(NULL,comma))!= NULL)
+        {
+            printf("%s", temp);
+        }
+    }
+    fclose(fp);
+}
+```
