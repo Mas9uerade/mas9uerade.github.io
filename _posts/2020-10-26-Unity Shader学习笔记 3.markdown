@@ -4,7 +4,7 @@ title:      "Unity3d Shader 学习笔记 3"
 subtitle:   " \"Unity Shader 入门笔记\""
 date:       2020-10-26 22:34:00
 author:     "Mas9uerade"
-header-img: "img/UnityShader3/title_holography_s1.png"
+header-img: "img/title_holography_s1.png"
 tags:
     - Unity3d
     - Shader	
