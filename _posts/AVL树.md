@@ -1,0 +1,287 @@
+## 平衡二叉树
+
+   平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法），且具有以下性质：它是一 棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408203256251.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MzQzNTU3,size_16,color_FFFFFF,t_70)
+
+### 平衡因子
+
+   某结点的左子树与右子树的高度(深度)差即为该结点的平衡因子（BF,Balance Factor）。平衡二叉树上所有结点的平衡因子只可能是 -1，0 或 1。如果某一结点的平衡因子绝对值大于1则说明此树不是平衡二叉树。**为了方便计算每一结点的平衡因子我们可以为每个节点赋予height这一属性，表示此节点的高度。**
+
+### 基础设计
+
+   首先我们可以设计出AVL树节点，并且实现一些简单通用的方法供后续操作。
+
+```java
+/**
+ * AVLTree是BST，所以节点值必须是可比较的
+ */
+public class AvlTree<E extends Comparable<E>>{
+	private class Node{
+		public E e;
+		public Node left;
+		public Node right;
+		public int height;
+
+		public Node(E e){
+			this.e = e;
+			this.left = null;
+			this.right = null;
+			this.height = 1;
+		}
+	}
+
+	private Node root;
+	private int size;
+
+	public AvlTree(){
+		root=null;
+		size=0;
+	}
+
+	//获取某一结点的高度
+	private int getHeight(Node node){
+		if(node==null){
+			return 0;
+		}
+		return node.height;
+	}
+	
+	public int getSize(){
+		return size;
+	}
+
+	public boolean isEmpty(){
+		return size == 0;
+	}
+	
+	/**
+	 * 获取节点的平衡因子
+	 * @param node
+	 * @return
+	 */
+	private int getBalanceFactor(Node node){
+		if(node==null){
+			return 0;
+		}
+		return getHeight(node.left)-getHeight(node.right);
+	}
+	
+	//判断树是否为平衡二叉树
+	public boolean isBalanced(){
+		return isBalanced(root);
+	}
+
+	private boolean isBalanced(Node node){
+		if(node==null){
+			return true;
+		}
+		int balanceFactory = Math.abs(getBalanceFactor(node));
+		if(balanceFactory>1){
+			return false;
+		}
+		return isBalanced(node.left)&&isBalanced(node.right);
+	}
+}
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970
+```
+
+## 添加节点
+
+   往平衡二叉树中添加节点很可能会导致二叉树失去平衡，所以我们需要在每次插入节点后进行平衡的维护操作。**插入节点破坏平衡性有如下四种情况：**
+
+### LL（右旋）
+
+   LL的意思是向左子树（L）的左孩子（L）中插入新节点后导致不平衡，这种情况下需要右旋操作，而不是说LL的意思是右旋，后面的也是一样。
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408210355599.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MzQzNTU3,size_16,color_FFFFFF,t_70)
+我们将这种情况抽象出来，得到下图：
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408210824197.png)
+我们需要对节点y进行平衡的维护。**步骤如下图所示：**
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408211619425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MzQzNTU3,size_16,color_FFFFFF,t_70)
+
+```java
+/**
+ * 右旋转
+ */
+private Node rightRotate(Node y){
+	Node x = y.left;
+	Node t3 = x.right;
+	x.right = y;
+	y.left = t3;
+	//更新height
+	y.height = Math.max(getHeight(y.left),getHeight(y.right))+1;
+	x.height = Math.max(getHeight(x.left),getHeight(x.right))+1;
+	return x;
+}
+```
+
+### RR
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408214243812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MzQzNTU3,size_16,color_FFFFFF,t_70)
+我们将这种情况抽象出来，得到下图：
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408214321472.png)
+我们需要对节点y进行平衡的维护。**步骤如下图所示：**
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408214353545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MzQzNTU3,size_16,color_FFFFFF,t_70)
+
+```java
+/**
+ * 左旋转
+ */
+private Node leftRotate(Node y){
+	Node x = y.right;
+	Node t2 = x.left;
+	x.left = y;
+	y.right = t2;
+	//更新height
+	y.height = Math.max(getHeight(y.left),getHeight(y.right))+1;
+	x.height = Math.max(getHeight(x.left),getHeight(x.right))+1;
+	return x;
+}
+
+```
+
+### LR
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408215652458.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MzQzNTU3,size_16,color_FFFFFF,t_70)
+我们将这种情况抽象出来，得到下图：
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408220008127.png)
+我们需要对节点y进行平衡的维护。**步骤如下图所示：**
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408220207905.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MzQzNTU3,size_16,color_FFFFFF,t_70)
+**第三个图中x和z反了，失误**
+
+### RL
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408215302630.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MzQzNTU3,size_16,color_FFFFFF,t_70)
+我们将这种情况抽象出来，得到下图：
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408215326866.png)
+我们需要对节点y进行平衡的维护。**步骤如下图所示：**
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190408215508810.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI1MzQzNTU3,size_16,color_FFFFFF,t_70)
+**第二个图中y的左孩子为T1，第三个图中x和z反了，孩子也错了，应该是从左至右T1，T2，T3，T4，失误。。。**
+
+### 添加节点代码
+
+```java
+// 向二分搜索树中添加新的元素(key, value)
+public void add(E e){
+	root = add(root, e);
+}
+
+// 向以node为根的二分搜索树中插入元素(key, value)，递归算法
+// 返回插入新节点后二分搜索树的根
+private Node add(Node node, E e){
+	if(node == null){
+		size ++;
+		return new Node(e);
+	}
+	if(e.compareTo(node.e) < 0)
+		node.left = add(node.left, e);
+	else if(e.compareTo(node.e) > 0)
+		node.right = add(node.right, e);
+	//更新height
+	node.height = 1+Math.max(getHeight(node.left),getHeight(node.right));
+	//计算平衡因子
+	int balanceFactor = getBalanceFactor(node);
+	if(balanceFactor > 1 && getBalanceFactor(node.left)>0) {
+		//右旋LL
+		return rightRotate(node);
+	}
+	if(balanceFactor < -1 && getBalanceFactor(node.right)<0) {
+		//左旋RR
+		return leftRotate(node);
+	}
+	//LR
+	if(balanceFactor > 1 && getBalanceFactor(node.left) < 0){
+		node.left = leftRotate(node.left);
+		return rightRotate(node);
+	}
+	//RL
+	if(balanceFactor < -1 && getBalanceFactor(node.right) > 0){
+		node.right = rightRotate(node.right);
+		return leftRotate(node);
+	}
+	return node;
+}
+12345678910111213141516171819202122232425262728293031323334353637383940
+```
+
+## 删除节点
+
+   在删除AVL树节点前需要知道二分搜索树的节点删除操作[【点此学习吧！】](https://blog.csdn.net/qq_25343557/article/details/84330095#t7)，和二分搜索树删除节点不同的是我们删除AVL树的节点后需要进行平衡的维护操作。
+
+```java
+public E remove(E e){
+	Node node = getNode(root, e);
+	if(node != null){
+		root = remove(root, e);
+		return node.e;
+	}
+	return null;
+}
+
+private Node remove(Node node, E e){
+
+	if( node == null )
+		return null;
+	Node retNode;
+	if( e.compareTo(node.e) < 0 ){
+		node.left = remove(node.left , e);
+		retNode = node;
+	}
+	else if(e.compareTo(node.e) > 0 ){
+		node.right = remove(node.right, e);
+		retNode = node;
+	}
+	else{   // e.compareTo(node.e) == 0
+		// 待删除节点左子树为空的情况
+		if(node.left == null){
+			Node rightNode = node.right;
+			node.right = null;
+			size --;
+			retNode = rightNode;
+		}
+		// 待删除节点右子树为空的情况
+		else if(node.right == null){
+			Node leftNode = node.left;
+			node.left = null;
+			size --;
+			retNode = leftNode;
+		}else {
+			// 待删除节点左右子树均不为空的情况
+			// 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点
+			// 用这个节点顶替待删除节点的位置
+			Node successor = minimum(node.right);
+			successor.right = remove(node.right, successor.e);
+			successor.left = node.left;
+
+			node.left = node.right = null;
+
+			retNode = successor;
+		}
+	}
+	if(retNode==null)
+		return null;
+	//维护平衡
+	//更新height
+	retNode.height = 1+Math.max(getHeight(retNode.left),getHeight(retNode.right));
+	//计算平衡因子
+	int balanceFactor = getBalanceFactor(retNode);
+	if(balanceFactor > 1 && getBalanceFactor(retNode.left)>=0) {
+		//右旋LL
+		return rightRotate(retNode);
+	}
+	if(balanceFactor < -1 && getBalanceFactor(retNode.right)<=0) {
+		//左旋RR
+		return leftRotate(retNode);
+	}
+	//LR
+	if(balanceFactor > 1 && getBalanceFactor(retNode.left) < 0){
+		node.left = leftRotate(retNode.left);
+		return rightRotate(retNode);
+	}
+	//RL
+	if(balanceFactor < -1 && getBalanceFactor(retNode.right) > 0){
+		node.right = rightRotate(retNode.right);
+		return leftRotate(retNode);
+	}
+	return retNode;
+}
+```

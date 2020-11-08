@@ -197,7 +197,83 @@ unity中协程执行过程中，通过yield return XXX，将程序挂起，去�
 
 
 
-Struct和class的区别，值类型和引用类型区别C#装箱和拆箱Inline函数有啥作用，和宏定义有啥区别闭包Action和function区别，以及内部实现，注册函数如何防止重复，如何删除Map怎么实现的，Dictionary如何实现红黑树和avl树还有堆的区别，内存&效率快排的时间空间复杂度以及实现堆排的实现，时间空间复杂度Enum作Key的问题CLR是什么il2cpp和mono如何实现一个扇形进度条渲染管线流程，mvp变换等，各种testShadowmap实现如何高效实现阴影CPU和GPU区别，如何设计几种反走样算法实现、问题、效率前向渲染和延迟渲染的区别，什么时候用延迟渲染需要几个buffer，需要记录什么信息数组和链表区别C# GC算法内存管理器实现如何实现战争迷雾Pbr最重要的参数，几个方程**如何搭建一个pbr工作流**Topk问题以及变种，各种解法100万个数据快速插入删除和随机访问1小时燃烧完的绳子，任意根，衡量出15分钟**Unity资源相关问题，内存分布，是否copy等Unity动画相关问题**帧同步和状态同步区别等一系列问题帧同步要注意的问题**随机数如何保证同步如何设计一个技能系统以及buff系统**数组第k大的数1~n有一个数字没有，找到这个数如何分析程序运行效率瓶颈，log分析**UI背包如何优化**Unity ui如何自适应A\*寻路实现**Unity navimesh**体素的思想和实现碰撞检测算法，优化，物理引擎检测优化连续碰撞检测**设计个UIManager，ui层级关系，ui优化**Mvc思想设计模式准则Unity优化手段，dc cpu gpu** **UML图** 消息管理器实现lua dofile和require区别Lua面向对象实现以及与区别 **如何防止大量GC** **如何实现热更****游戏AI如何实现，行为树要点** 如何实现一个延时运行功能**Unity纹理压缩格式**    Mipmap思想，内存变化
+Struct和class的区别，值类型和引用类型区别C#装箱和拆箱
+
+Inline函数有啥作用，和宏定义有啥区别
+
+闭包
+
+
+
+
+
+Action和function区别，以及内部实现，注册函数如何防止重复，如何删除
+
+Map怎么实现的，Dictionary如何实现
+
+红黑树和avl树还有堆的区别，内存&效率
+
+快排的时间空间复杂度以及实现
+
+堆排的实现，时间空间复杂度
+
+Enum作Key的问题
+
+
+
+**Dictionary**的key必须是唯一的标识，因此**Dictionary**需要对 key进行判等的操作，如果key的类型没有实现 IEquatable接口，则默认根据System.Object.Equals()和GetHashCode()方法判断值是否相等。我们可以看看常用作key的几种类型在.NET Framework中的定义：
+
+public sealed class String : IComparable, ICloneable, IConvertible, IComparable<string>, IEnumerable<string>, IEnumerable, IEquatable<string> 
+
+public struct Int32 : IComparable, IFormattable, IConvertible, IComparable<int>, IEquatable<int> 
+
+public abstract class **Enum** : ValueType, IComparable, IFormattable, IConvertible
+
+注意**Enum**类型的定义与前两种类型的不同，它并没有实现IEquatable接口。因此，当我们使用**Enum**类型作为key值时，**Dictionary**的内部操作就需要将**Enum**类型转换为System.Object，这就导致了Boxing的产生。它是导致**Enum**作为 key值的性能瓶颈。
+
+CLR是什么
+
+il2cpp和mono
+
+如何实现一个扇形进度条
+
+渲染管线流程，mvp变换等，
+
+各种test
+
+Shadowmap实现如何高效实现阴影
+
+CPU和GPU区别，
+
+如何设计几种反走样算法实现、问题、效率
+
+前向渲染和延迟渲染的区别
+
+什么时候用延迟渲染需要几个buffer，需要记录什么信息
+
+数组和链表区别
+
+C# GC算法
+
+内存管理器实现
+
+如何实现战争迷雾
+
+Pbr最重要的参数，几个方程
+
+**如何搭建一个pbr工作流**
+
+Topk问题以及变种，各种解法
+
+100万个数据快速插入删除和随机访问
+
+1小时燃烧完的绳子，任意根，衡量出15分钟
+
+**Unity资源相关问题，内存分布，是否copy等Unity动画相关问题
+
+帧同步和状态同步区别等一系列问题帧同步要注意的问题**随机数如何保证同步如何设计一个技能系统以及buff系统**数组第k大的数1~n有一个数字没有，找到这个数如何
+
+分析程序运行效率瓶颈，log分析**UI背包如何优化**Unity ui如何自适应A\*寻路实现**Unity navimesh**体素的思想和实现碰撞检测算法，优化，物理引擎检测优化连续碰撞检测**设计个UIManager，ui层级关系，ui优化**Mvc思想设计模式准则Unity优化手段，dc cpu gpu** **UML图** 消息管理器实现lua dofile和require区别Lua面向对象实现以及与区别 **如何防止大量GC** **如何实现热更****游戏AI如何实现，行为树要点** 如何实现一个延时运行功能**Unity纹理压缩格式**    Mipmap思想，内存变化
 
 ```
 
