@@ -1,4 +1,5 @@
 ---
+
 layout:     post
 title:      "Unity Shader 概念重析"
 subtitle:   " \"面试小记\""
@@ -45,8 +46,6 @@ Unity Shader实际上指的就是一个ShaderLab文件。以.shader作为后缀�
 
 
 ## 2.  **Unity Shader 关键知识点提炼**
-
-
 
 ### 2.1 Cg编程
 
