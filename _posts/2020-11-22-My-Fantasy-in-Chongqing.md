@@ -4,7 +4,7 @@ title:      "My Fantasy in Chongqing"
 subtitle:   "念念不忘，必有回响"
 date:       2020-11-23 01:38:01
 author:     "Mas9uerade"
-header-img: "img/hongya.jpg"
+header-img: "img/Hongya.jpg"
 tags:
     - 随想
 ---
