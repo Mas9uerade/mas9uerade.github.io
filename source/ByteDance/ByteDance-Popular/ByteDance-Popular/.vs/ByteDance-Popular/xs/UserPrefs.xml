@@ -1,0 +1,41 @@
+﻿<Properties StartupConfiguration="{10B74331-1A54-4F52-8B72-79B3DCCA9AC3}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Greedy/MaxSwap.cs" Line="40" Column="1" />
+      <File FileName="Program.cs" Line="18" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ByteDance-Popular" expanded="True">
+            <Node name="ByteDance-Popular" expanded="True">
+              <Node name="Greedy" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>minFreq</Value>
+          <Value>freqDict</Value>
+          <Value>cache</Value>
+          <Value>strRet</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ByteDance-Popular PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/SortedStack/Smallest-Subsequence-of-Distinct-Characters.cs" relfile="SortedStack/Smallest-Subsequence-of-Distinct-Characters.cs" line="58" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/LFU.cs" relfile="LFU.cs" line="83" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/LFU.cs" relfile="LFU.cs" line="79" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Program.cs" relfile="Program.cs" line="44" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Program.cs" relfile="Program.cs" line="18" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

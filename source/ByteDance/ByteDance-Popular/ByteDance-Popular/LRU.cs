@@ -36,6 +36,7 @@ public class LRUCache
         pair = new Dictionary<int, DLinkedNode>(capacity);
         Capacity = capacity;
 
+        // 使用伪头部和伪尾部节点
         Head = new DLinkedNode();
         Tail = new DLinkedNode();
         Head.next = Tail;

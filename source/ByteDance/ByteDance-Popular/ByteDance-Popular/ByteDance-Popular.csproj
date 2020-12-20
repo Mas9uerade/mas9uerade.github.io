@@ -40,12 +40,22 @@
     <Compile Include="PriorityQueue\Trapping-Rain-Water-ii.cs" />
     <Compile Include="PriorityQueue\PriorityQueue.cs" />
     <Compile Include="LRU.cs" />
+    <Compile Include="SortedStack\Smallest-Subsequence-of-Distinct-Characters.cs" />
+    <Compile Include="SortedStack\SortedStack.cs" />
+    <Compile Include="SortedStack\Trapping-Rain-Water.cs" />
+    <Compile Include="LFU.cs" />
+    <Compile Include="LexicalSort\Lexicographical-Numbers.cs" />
+    <Compile Include="DFS\Longest-Increasing-Path-in-a-Matrix.cs" />
+    <Compile Include="Greedy\MaxSwap.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="String\" />
     <Folder Include="DP\" />
     <Folder Include="Greedy\" />
     <Folder Include="PriorityQueue\" />
+    <Folder Include="SortedStack\" />
+    <Folder Include="LexicalSort\" />
+    <Folder Include="DFS\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
