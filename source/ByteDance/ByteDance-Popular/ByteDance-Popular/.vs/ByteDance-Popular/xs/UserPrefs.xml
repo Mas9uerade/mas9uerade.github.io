@@ -1,16 +1,20 @@
 ﻿<Properties StartupConfiguration="{10B74331-1A54-4F52-8B72-79B3DCCA9AC3}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Permutation/NextPermutation.cs">
     <Files>
-      <File FileName="Greedy/MaxSwap.cs" Line="40" Column="1" />
       <File FileName="Program.cs" Line="18" Column="1" />
+      <File FileName="BackTracking/Restore- IP-Addresses.cs" Line="99" Column="18" />
+      <File FileName="Permutation/NextPermutation.cs" Line="11" Column="22" />
+      <File FileName="LexicalSort/Lexicographical-Numbers.cs" Line="15" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ByteDance-Popular" expanded="True">
             <Node name="ByteDance-Popular" expanded="True">
-              <Node name="Greedy" expanded="True" />
-              <Node name="Program.cs" selected="True" />
+              <Node name="LexicalSort" expanded="True" />
+              <Node name="Permutation" expanded="True">
+                <Node name="NextPermutation.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -21,6 +25,8 @@
           <Value>freqDict</Value>
           <Value>cache</Value>
           <Value>strRet</Value>
+          <Value>ratings</Value>
+          <Value>candice</Value>
         </State>
       </Pad>
     </Pads>
@@ -35,6 +41,8 @@
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/LFU.cs" relfile="LFU.cs" line="79" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Program.cs" relfile="Program.cs" line="44" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Program.cs" relfile="Program.cs" line="18" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Greedy/Candy.cs" relfile="Greedy/Candy.cs" line="52" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Greedy/Candy.cs" relfile="Greedy/Candy.cs" line="72" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

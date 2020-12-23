@@ -47,6 +47,13 @@
     <Compile Include="LexicalSort\Lexicographical-Numbers.cs" />
     <Compile Include="DFS\Longest-Increasing-Path-in-a-Matrix.cs" />
     <Compile Include="Greedy\MaxSwap.cs" />
+    <Compile Include="DP\Min-Cost-Climbing-Stairs.cs" />
+    <Compile Include="LinkedList\ReorderList.cs" />
+    <Compile Include="LinkedList\ListNode.cs" />
+    <Compile Include="Greedy\Candy.cs" />
+    <Compile Include="SlidingWindow\SlidingWindow.cs" />
+    <Compile Include="BackTracking\Restore- IP-Addresses.cs" />
+    <Compile Include="Permutation\NextPermutation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="String\" />
@@ -56,6 +63,10 @@
     <Folder Include="SortedStack\" />
     <Folder Include="LexicalSort\" />
     <Folder Include="DFS\" />
+    <Folder Include="LinkedList\" />
+    <Folder Include="SlidingWindow\" />
+    <Folder Include="BackTracking\" />
+    <Folder Include="Permutation\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

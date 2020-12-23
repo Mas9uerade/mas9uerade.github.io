@@ -12,7 +12,7 @@ namespace ByteDancePopular
             Solution sol = new Solution();
             //sol.RemoveDuplicateLetters("bcabc");
 
-            int ret = sol.MaximumSwap(10);
+            sol.RestoreIpAddresses("010010");
             //List<int> ret = (List<int>)sol.LexicalOrder(13);
 
             Console.ReadKey();
