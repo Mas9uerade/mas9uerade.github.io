@@ -39,7 +39,56 @@ namespace ByteDancePopular
     {
         public void NextPermutation(int[] nums)
         {
-            
+            //需要替换的位置
+            int incrementIndex = -1;
+            int val = -1;
+            for (int i = nums.Length -1; i >= 1; --i)
+            {
+                if (nums[i] > nums[i-1])
+                {
+                    incrementIndex = i - 1;
+                    val = nums[incrementIndex];
+                    break;
+                }
+            }
+            //则为全递减排列，直接反转
+            if (incrementIndex == -1)
+            {
+                ReversePermutation(ref nums, 0, nums.Length -1);
+                return;
+            }
+
+            int nextIndex = incrementIndex + 1;
+            int nextVal = nums[nextIndex];
+            for (int i = nums.Length - 1; i > incrementIndex; --i)
+            {
+                if (nums[i] > val)
+                {
+                    if (nextVal >= nums[i])
+                    {
+                        nextVal = nums[i];
+                        nextIndex = Math.Max(i, nextIndex);
+                    }
+                }
+            }
+            //交换位置
+            nums[incrementIndex] = nextVal;
+            nums[nextIndex] = val;
+            ReversePermutation(ref nums, incrementIndex + 1, nums.Length - 1);
+        }
+
+
+        private void ReversePermutation(ref int[] nums, int left, int right)
+        {
+            int tmp = -1;
+            while (left < right)
+            {
+                tmp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = tmp;
+                left++;
+                right--;
+            }
         }
     }
 }

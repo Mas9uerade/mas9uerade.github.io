@@ -54,6 +54,10 @@
     <Compile Include="SlidingWindow\SlidingWindow.cs" />
     <Compile Include="BackTracking\Restore- IP-Addresses.cs" />
     <Compile Include="Permutation\NextPermutation.cs" />
+    <Compile Include="BinaryTree\BinaryTreeRightSideView.cs" />
+    <Compile Include="BinaryTree\TreeNode.cs" />
+    <Compile Include="LinkedList\Add-Two-Numbers.cs" />
+    <Compile Include="LinkedList\Add-Two-Numbers-2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="String\" />
@@ -67,6 +71,7 @@
     <Folder Include="SlidingWindow\" />
     <Folder Include="BackTracking\" />
     <Folder Include="Permutation\" />
+    <Folder Include="BinaryTree\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
