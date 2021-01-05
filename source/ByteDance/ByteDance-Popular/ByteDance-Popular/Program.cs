@@ -10,11 +10,13 @@ namespace ByteDancePopular
         {
             Console.WriteLine("Hello World!");
             Solution sol = new Solution();
-            //sol.RemoveDuplicateLetters("bcabc");
-            int[] data = new int[5] { 2, 3, 1, 3, 3 };
-            //sol.NextPermutation(data);
-            //List<int> ret = (List<int>)sol.LexicalOrder(13);
 
+            sol.IsInterleaveUnitTest();
+
+
+
+
+            //List<int> ret = (List<int>)sol.LexicalOrder(13);
             Console.ReadKey();
             //LRUCache cache = new LRUCache(2);
             //cache.Put(1, 1);

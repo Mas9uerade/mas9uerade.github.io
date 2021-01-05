@@ -58,6 +58,7 @@
     <Compile Include="BinaryTree\TreeNode.cs" />
     <Compile Include="LinkedList\Add-Two-Numbers.cs" />
     <Compile Include="LinkedList\Add-Two-Numbers-2.cs" />
+    <Compile Include="DP\Interleaving-String.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="String\" />
