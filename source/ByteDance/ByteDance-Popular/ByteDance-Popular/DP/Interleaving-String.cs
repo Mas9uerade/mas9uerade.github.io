@@ -92,6 +92,17 @@ namespace ByteDancePopular
             {
                 return false;
             }
+            else
+            {
+                if (m ==0)
+                {
+                    return string.Equals(s2, s3);
+                }
+                if (n == 0)
+                {
+                    return string.Equals(s1, s3);
+                }
+            }
             bool[,] dp = new bool[n+1, m+1];
             dp[0, 0] = true;
             dp[0, 1] = s3[0] == s1[0];

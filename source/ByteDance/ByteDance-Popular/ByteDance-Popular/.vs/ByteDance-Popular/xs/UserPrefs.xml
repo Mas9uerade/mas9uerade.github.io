@@ -1,23 +1,25 @@
 ﻿<Properties StartupConfiguration="{10B74331-1A54-4F52-8B72-79B3DCCA9AC3}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DP/Interleaving-String.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DP/K-Concatenation-Maximum-Sum.cs">
     <Files>
-      <File FileName="BinaryTree/BinaryTreeRightSideView.cs" Line="45" Column="28" />
-      <File FileName="Program.cs" />
-      <File FileName="LinkedList/Add-Two-Numbers.cs" />
-      <File FileName="LinkedList/ReorderList.cs" />
-      <File FileName="LinkedList/Add-Two-Numbers-2.cs" Line="16" Column="14" />
-      <File FileName="DP/Interleaving-String.cs" Line="66" Column="1" />
-      <File FileName="DP/Min-Cost-Climbing-Stairs.cs" Line="27" Column="1" />
+      <File FileName="Graph/Shortest-Path-to-Get-All-Keys.cs" Line="27" Column="31" />
+      <File FileName="Program.cs" Line="43" Column="1" />
+      <File FileName="BinarySearch/Median-of-Two-Sorted-Arrays.cs" Line="1" Column="1" />
+      <File FileName="BinarySearch/Random-Pick-with-Weight.cs" Line="81" Column="21" />
+      <File FileName="String/Minimum-Remove-to-Make-Valid-Parentheses.cs" Line="88" Column="1" />
+      <File FileName="DP/K-Concatenation-Maximum-Sum.cs" Line="39" Column="35" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ByteDance-Popular" expanded="True">
             <Node name="ByteDance-Popular" expanded="True">
+              <Node name="BackTracking" expanded="True" />
+              <Node name="BinarySearch" expanded="True" />
               <Node name="DP" expanded="True">
-                <Node name="Interleaving-String.cs" selected="True" />
+                <Node name="K-Concatenation-Maximum-Sum.cs" selected="True" />
               </Node>
-              <Node name="Permutation" expanded="True" />
+              <Node name="Graph" expanded="True" />
+              <Node name="String" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -32,13 +34,27 @@
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/SortedStack/Smallest-Subsequence-of-Distinct-Characters.cs" relfile="SortedStack/Smallest-Subsequence-of-Distinct-Characters.cs" line="58" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/LFU.cs" relfile="LFU.cs" line="83" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/LFU.cs" relfile="LFU.cs" line="79" column="1" />
-      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Program.cs" relfile="Program.cs" line="44" column="1" />
-      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Program.cs" relfile="Program.cs" line="18" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Program.cs" relfile="Program.cs" line="43" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Greedy/Candy.cs" relfile="Greedy/Candy.cs" line="52" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Greedy/Candy.cs" relfile="Greedy/Candy.cs" line="72" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Permutation/NextPermutation.cs" relfile="Permutation/NextPermutation.cs" line="61" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Permutation/NextPermutation.cs" relfile="Permutation/NextPermutation.cs" line="55" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Permutation/NextPermutation.cs" relfile="Permutation/NextPermutation.cs" line="77" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/DP/Interleaving-String.cs" relfile="DP/Interleaving-String.cs" line="122" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/DP/Interleaving-String.cs" relfile="DP/Interleaving-String.cs" line="129" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/DP/Interleaving-String.cs" relfile="DP/Interleaving-String.cs" line="127" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/SlidingWindow/SlidingWindow.cs" relfile="SlidingWindow/SlidingWindow.cs" line="86" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/SlidingWindow/SlidingWindow.cs" relfile="SlidingWindow/SlidingWindow.cs" line="91" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/SlidingWindow/SlidingWindow.cs" relfile="SlidingWindow/SlidingWindow.cs" line="112" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/BinarySearch/Median-of-Two-Sorted-Arrays.cs" relfile="BinarySearch/Median-of-Two-Sorted-Arrays.cs" line="70" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/BinarySearch/Median-of-Two-Sorted-Arrays.cs" relfile="BinarySearch/Median-of-Two-Sorted-Arrays.cs" line="62" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/DP/Longest-Palindromic-Substring.cs" relfile="DP/Longest-Palindromic-Substring.cs" line="61" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/DP/Longest-Palindromic-Substring.cs" relfile="DP/Longest-Palindromic-Substring.cs" line="56" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/DP/Longest-Palindromic-Substring.cs" relfile="DP/Longest-Palindromic-Substring.cs" line="44" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/DP/Longest-Palindromic-Substring.cs" relfile="DP/Longest-Palindromic-Substring.cs" line="84" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/DP/Longest-Palindromic-Substring.cs" relfile="DP/Longest-Palindromic-Substring.cs" line="80" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/String/Minimum-Remove-to-Make-Valid-Parentheses.cs" relfile="String/Minimum-Remove-to-Make-Valid-Parentheses.cs" line="87" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/String/Minimum-Remove-to-Make-Valid-Parentheses.cs" relfile="String/Minimum-Remove-to-Make-Valid-Parentheses.cs" line="90" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

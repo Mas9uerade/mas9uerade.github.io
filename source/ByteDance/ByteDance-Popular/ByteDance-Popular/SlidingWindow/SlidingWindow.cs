@@ -29,6 +29,7 @@
 // 3. 当窗口扩张时，必定是因为 k有余裕 或者 扩张进入的是一个目前最大出现次数的值
 // 4. 当窗口收缩时，必定是因为 扩张的值并非最大出现次数的值，且k不余裕，所以收缩会伴随着滑动
 using System;
+using System.Collections.Generic;
 
 namespace ByteDancePopular
 {
@@ -61,5 +62,55 @@ namespace ByteDancePopular
             }
             return ret;
         }
+
+        //双指针滑动
+        public IList<IList<int>> LargeGroupPositions(string s)
+        {
+            IList<IList<int>> ret = new List<IList<int>>();
+
+            if (string.IsNullOrEmpty(s))
+            {
+                return ret;
+            }
+            int left = 0, right = 0;
+            Stack<int> validZone = new Stack<int>();
+            int leftMarker = 0;
+            while (right < s.Length)
+            {
+                char cl = s[left];
+                char cr = s[right];
+
+                if (cl == cr)
+                {
+                    leftMarker = left;
+                    validZone.Push(right);
+                    right++;
+                }
+                else
+                {
+                    if (validZone.Count >= 3)
+                    {
+                        List<int> zone = new List<int>();
+                        zone.Add(leftMarker);
+                        zone.Add(validZone.Pop());
+                        ret.Add(zone);
+                    }
+                    validZone.Clear();
+                    left = right;
+                    leftMarker = left;
+                    validZone.Push(right);
+                    right++;
+                }
+            }
+            if (validZone.Count >= 3)
+            {
+                List<int> zone = new List<int>();
+                zone.Add(leftMarker);
+                zone.Add(validZone.Pop());
+                ret.Add(zone);
+            }
+            return ret;
+        }
+
     }
 }

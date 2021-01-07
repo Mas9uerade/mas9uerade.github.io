@@ -1,6 +1,6 @@
-/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/obj/Debug/ByteDance-Popular.csprojAssemblyReference.cache
-/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/obj/Debug/ByteDance-Popular.csproj.CoreCompileInputs.cache
 /Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/bin/Debug/ByteDance-Popular.exe
 /Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/bin/Debug/ByteDance-Popular.pdb
+/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/obj/Debug/ByteDance-Popular.csproj.CoreCompileInputs.cache
 /Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/obj/Debug/ByteDance-Popular.exe
 /Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/obj/Debug/ByteDance-Popular.pdb
+/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/obj/Debug/ByteDance-Popular.csprojAssemblyReference.cache

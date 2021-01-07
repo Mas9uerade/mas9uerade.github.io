@@ -8,16 +8,13 @@ namespace ByteDancePopular
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.Clear();
+            //Console.WriteLine("Hello World!");
             Solution sol = new Solution();
-
-            sol.IsInterleaveUnitTest();
-
-
+            int[] arr = new int[] { -1, 5, -7, 2, -1, 0, 7, 6, 2, 4};
+            sol.KConcatenationMaxSum(arr, 5);
 
 
-            //List<int> ret = (List<int>)sol.LexicalOrder(13);
-            Console.ReadKey();
             //LRUCache cache = new LRUCache(2);
             //cache.Put(1, 1);
             //cache.Put(2, 2);

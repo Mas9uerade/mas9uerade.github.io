@@ -59,6 +59,17 @@
     <Compile Include="LinkedList\Add-Two-Numbers.cs" />
     <Compile Include="LinkedList\Add-Two-Numbers-2.cs" />
     <Compile Include="DP\Interleaving-String.cs" />
+    <Compile Include="LinkedList\Merge-K-Sorted-Lists.cs" />
+    <Compile Include="BinarySearch\Median-of-Two-Sorted-Arrays.cs" />
+    <Compile Include="Recursion\Judge24Point.cs" />
+    <Compile Include="SlidingWindow\Longest-Substring-without-Repeating-Characters.cs" />
+    <Compile Include="LinkedList\ReverseList.cs" />
+    <Compile Include="DP\Longest-Palindromic-Substring.cs" />
+    <Compile Include="Sort\Merge-Interval.cs" />
+    <Compile Include="Graph\Shortest-Path-to-Get-All-Keys.cs" />
+    <Compile Include="BinarySearch\Random-Pick-with-Weight.cs" />
+    <Compile Include="String\Minimum-Remove-to-Make-Valid-Parentheses.cs" />
+    <Compile Include="DP\K-Concatenation-Maximum-Sum.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="String\" />
@@ -73,6 +84,10 @@
     <Folder Include="BackTracking\" />
     <Folder Include="Permutation\" />
     <Folder Include="BinaryTree\" />
+    <Folder Include="BinarySearch\" />
+    <Folder Include="Recursion\" />
+    <Folder Include="Sort\" />
+    <Folder Include="Graph\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
