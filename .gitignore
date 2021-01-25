@@ -4,3 +4,9 @@ _site
 .psd
 .graffle
 .vscode/
+*.exe
+*.exe
+*.pdb
+obj
+bin
+Debug

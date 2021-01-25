@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">anycpu</Platform>
+    <ProjectGuid>{10B74331-1A54-4F52-8B72-79B3DCCA9AC3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ByteDancePopular</RootNamespace>
+    <AssemblyName>ByteDance-Popular</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|anycpu' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="String\CountofAtoms.cs" />
+    <Compile Include="String\StringConvert.cs" />
+    <Compile Include="String\LongestSubString.cs" />
+    <Compile Include="DP\NumberofWays.cs" />
+    <Compile Include="Greedy\CampusBikes.cs" />
+    <Compile Include="PriorityQueue\Trapping-Rain-Water-ii.cs" />
+    <Compile Include="PriorityQueue\PriorityQueue.cs" />
+    <Compile Include="LRU.cs" />
+    <Compile Include="SortedStack\Smallest-Subsequence-of-Distinct-Characters.cs" />
+    <Compile Include="SortedStack\SortedStack.cs" />
+    <Compile Include="SortedStack\Trapping-Rain-Water.cs" />
+    <Compile Include="LFU.cs" />
+    <Compile Include="LexicalSort\Lexicographical-Numbers.cs" />
+    <Compile Include="DFS\Longest-Increasing-Path-in-a-Matrix.cs" />
+    <Compile Include="Greedy\MaxSwap.cs" />
+    <Compile Include="DP\Min-Cost-Climbing-Stairs.cs" />
+    <Compile Include="LinkedList\ReorderList.cs" />
+    <Compile Include="LinkedList\ListNode.cs" />
+    <Compile Include="Greedy\Candy.cs" />
+    <Compile Include="SlidingWindow\SlidingWindow.cs" />
+    <Compile Include="BackTracking\Restore- IP-Addresses.cs" />
+    <Compile Include="Permutation\NextPermutation.cs" />
+    <Compile Include="BinaryTree\BinaryTreeRightSideView.cs" />
+    <Compile Include="BinaryTree\TreeNode.cs" />
+    <Compile Include="LinkedList\Add-Two-Numbers.cs" />
+    <Compile Include="LinkedList\Add-Two-Numbers-2.cs" />
+    <Compile Include="DP\Interleaving-String.cs" />
+    <Compile Include="LinkedList\Merge-K-Sorted-Lists.cs" />
+    <Compile Include="BinarySearch\Median-of-Two-Sorted-Arrays.cs" />
+    <Compile Include="Recursion\Judge24Point.cs" />
+    <Compile Include="SlidingWindow\Longest-Substring-without-Repeating-Characters.cs" />
+    <Compile Include="LinkedList\ReverseList.cs" />
+    <Compile Include="DP\Longest-Palindromic-Substring.cs" />
+    <Compile Include="Sort\Merge-Interval.cs" />
+    <Compile Include="Graph\Shortest-Path-to-Get-All-Keys.cs" />
+    <Compile Include="BinarySearch\Random-Pick-with-Weight.cs" />
+    <Compile Include="String\Minimum-Remove-to-Make-Valid-Parentheses.cs" />
+    <Compile Include="DP\K-Concatenation-Maximum-Sum.cs" />
+    <Compile Include="First-Missing-Positive.cs" />
+    <Compile Include="DP\Binary-Prefix-Divisible-by-5.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="String\" />
+    <Folder Include="DP\" />
+    <Folder Include="Greedy\" />
+    <Folder Include="PriorityQueue\" />
+    <Folder Include="SortedStack\" />
+    <Folder Include="LexicalSort\" />
+    <Folder Include="DFS\" />
+    <Folder Include="LinkedList\" />
+    <Folder Include="SlidingWindow\" />
+    <Folder Include="BackTracking\" />
+    <Folder Include="Permutation\" />
+    <Folder Include="BinaryTree\" />
+    <Folder Include="BinarySearch\" />
+    <Folder Include="Recursion\" />
+    <Folder Include="Sort\" />
+    <Folder Include="Graph\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

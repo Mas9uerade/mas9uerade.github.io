@@ -9,3 +9,4 @@ public struct Int32 : IComparable, IFormattable, IConvertible, IComparable<int>,
 public abstract class **Enum** : ValueType, IComparable, IFormattable, IConvertible
 ```
 注意**Enum**类型的定义与前两种类型的不同，它并没有实现IEquatable接口。因此，当我们使用**Enum**类型作为key值时，**Dictionary**的内部操作就需要将**Enum**类型转换为System.Object，这就导致了Boxing的产生。它是导致**Enum**作为 key值的性能瓶颈。
+
