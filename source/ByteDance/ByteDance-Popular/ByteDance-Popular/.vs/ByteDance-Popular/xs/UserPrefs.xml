@@ -1,25 +1,14 @@
 ﻿<Properties StartupConfiguration="{10B74331-1A54-4F52-8B72-79B3DCCA9AC3}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DP/K-Concatenation-Maximum-Sum.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DP/Binary-Prefix-Divisible-by-5.cs">
     <Files>
-      <File FileName="Graph/Shortest-Path-to-Get-All-Keys.cs" Line="27" Column="31" />
-      <File FileName="Program.cs" Line="43" Column="1" />
-      <File FileName="BinarySearch/Median-of-Two-Sorted-Arrays.cs" Line="1" Column="1" />
-      <File FileName="BinarySearch/Random-Pick-with-Weight.cs" Line="81" Column="21" />
-      <File FileName="String/Minimum-Remove-to-Make-Valid-Parentheses.cs" Line="88" Column="1" />
-      <File FileName="DP/K-Concatenation-Maximum-Sum.cs" Line="39" Column="35" />
+      <File FileName="DP/Binary-Prefix-Divisible-by-5.cs" Line="39" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ByteDance-Popular" expanded="True">
             <Node name="ByteDance-Popular" expanded="True">
-              <Node name="BackTracking" expanded="True" />
-              <Node name="BinarySearch" expanded="True" />
-              <Node name="DP" expanded="True">
-                <Node name="K-Concatenation-Maximum-Sum.cs" selected="True" />
-              </Node>
-              <Node name="Graph" expanded="True" />
-              <Node name="String" expanded="True" />
+              <Node name="String" expanded="True" selected="True" />
             </Node>
           </Node>
         </State>
@@ -32,8 +21,6 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/SortedStack/Smallest-Subsequence-of-Distinct-Characters.cs" relfile="SortedStack/Smallest-Subsequence-of-Distinct-Characters.cs" line="58" column="1" />
-      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/LFU.cs" relfile="LFU.cs" line="83" column="1" />
-      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/LFU.cs" relfile="LFU.cs" line="79" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Program.cs" relfile="Program.cs" line="43" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Greedy/Candy.cs" relfile="Greedy/Candy.cs" line="52" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/Greedy/Candy.cs" relfile="Greedy/Candy.cs" line="72" column="1" />
@@ -55,6 +42,7 @@
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/DP/Longest-Palindromic-Substring.cs" relfile="DP/Longest-Palindromic-Substring.cs" line="80" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/String/Minimum-Remove-to-Make-Valid-Parentheses.cs" relfile="String/Minimum-Remove-to-Make-Valid-Parentheses.cs" line="87" column="1" />
       <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/String/Minimum-Remove-to-Make-Valid-Parentheses.cs" relfile="String/Minimum-Remove-to-Make-Valid-Parentheses.cs" line="90" column="1" />
+      <Breakpoint file="/Users/mas9uerade/Projects/mas9uerade-io/source/ByteDance/ByteDance-Popular/ByteDance-Popular/DP/K-Concatenation-Maximum-Sum.cs" relfile="DP/K-Concatenation-Maximum-Sum.cs" line="137" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

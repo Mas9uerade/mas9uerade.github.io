@@ -70,6 +70,8 @@
     <Compile Include="BinarySearch\Random-Pick-with-Weight.cs" />
     <Compile Include="String\Minimum-Remove-to-Make-Valid-Parentheses.cs" />
     <Compile Include="DP\K-Concatenation-Maximum-Sum.cs" />
+    <Compile Include="First-Missing-Positive.cs" />
+    <Compile Include="DP\Binary-Prefix-Divisible-by-5.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="String\" />

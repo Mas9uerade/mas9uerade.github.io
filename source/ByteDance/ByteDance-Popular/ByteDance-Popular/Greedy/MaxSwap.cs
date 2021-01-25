@@ -17,7 +17,7 @@ using System.Collections.Generic;
 //解释: 不需要交换。
 //注意:
 
-//给定数字的范围是[0, 108]
+//给定数字的范围是[0, 10^8]
 namespace ByteDancePopular
 {
     public partial class Solution

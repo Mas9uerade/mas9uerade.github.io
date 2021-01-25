@@ -15,7 +15,7 @@
 //  5     4 < ---
 
 //来源：力扣（LeetCode）
-//链接：https://leetcode-cn.com/problems/binary-tree-right-side-view
+//链接：https://leetcode-cn.com/problems/binary-tree-right-side-viewz
 //著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 using System;
@@ -59,16 +59,18 @@ namespace ByteDancePopular
                     }
                 }
                 //栈先进后出
+                if (node.left != null)
+                {
+                    nodeStack.Push(node.left);
+                    depthStack.Push(depth + 1);
+                }
+
                 if (node.right != null)
                 {
                     nodeStack.Push(node.right);
                     depthStack.Push(depth + 1);
                 }
-                if (node.left !=  null)
-                {
-                    nodeStack.Push(node.left);
-                    depthStack.Push(depth + 1);
-                }
+
             }
 
             List<int> ret = new List<int>(maxDepth +1);

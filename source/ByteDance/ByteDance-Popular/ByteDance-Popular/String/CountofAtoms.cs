@@ -1,4 +1,6 @@
-﻿using System;
+﻿// 726. 原子的数量
+// https://leetcode-cn.com/problems/number-of-atoms/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

@@ -71,7 +71,7 @@ namespace ByteDancePopular
         }
 
         /// <summary>
-        /// 两个数组，第一个数组的元素返回负数， 第二个返回正数
+        /// 返回第N个数
         /// </summary>
         /// <returns></returns>
         private int GetKthElement(int[] nums1, int[] nums2, int k)
